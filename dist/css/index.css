@@ -1,0 +1,10 @@
+.pane{
+    text-align: center;
+}
+.selfbox{
+    width:70%;
+    padding:40px 0;
+    margin:auto;
+    text-align: center;
+    border:#737475 solid 1px;
+}

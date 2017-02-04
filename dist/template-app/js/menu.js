@@ -1,27 +1,24 @@
-var remote = require('remote')
-var Menu = remote.require('menu')
-var MenuItem = remote.require('menu-item')
-
-// Build our new menu
-var menu = new Menu()
-menu.append(new MenuItem({
-  label: 'Delete',
-  click: function() {
-    // Trigger an alert when menu item is clicked
-    alert('Deleted')
+"use strict";
+class Music {
+  constructor() {
+    this.dragfile();
   }
-}))
-menu.append(new MenuItem({
-  label: 'More Info...',
-  click: function() {
-    // Trigger an alert when menu item is clicked
-    alert('Here is more information')
+  dragfile() {
+    const holder = document.getElementById('holder')
+    holder.ondragover = () => {
+      return false;
+    }
+    holder.ondragleave = holder.ondragend = () => {
+      return false;
+    }
+    holder.ondrop = (e) => {
+      e.preventDefault()
+      console.log(e.dataTransfer.files)
+      for (let f of e.dataTransfer.files) {
+        console.log('File(s) you dragged here: ', f.path)
+      }
+      return false;
+    }
   }
-}))
-
-// Add the listener
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('.js-context-menu').addEventListener('click', function (event) {
-    menu.popup(remote.getCurrentWindow());
-  })
-})
+}
+new Music();
