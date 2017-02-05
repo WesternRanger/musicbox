@@ -1,10 +1,51 @@
-.pane{
-    text-align: center;
+/*
+ * @Author: WesternRanger 
+ * @Date: 2017-02-04 20:33:31 
+ * @Last Modified by: WesternRanger
+ * @Last Modified time: 2017-02-05 18:42:59
+ */
+ .pane{
+     text-align: center;
+ }
+.pane-sm {
+    max-width: 300px;
+    min-width: 230px;
 }
-.selfbox{
-    width:70%;
-    padding:40px 0;
-    margin:auto;
+.nav-group-title {
+    margin: 0;
+    padding: 10px 10px 2px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #666666;
+}
+.tar-bar{
+    width:80%;
+    margin: auto;
+    text-align: right;
+    font-size:14px;
+}
+.select-btn{
+    display: inline-block;
+    padding:2px 3px;
+    margin:20px auto;
+    border-radius: 3px;
     text-align: center;
     border:#737475 solid 1px;
+}
+/*右侧播放区*/
+.audio-player{
+    margin-top:20px;
+    background:palevioletred;
+}
+#music-name{
+    margin:20px auto;
+    width:300px;
+    height:300px;
+    border-radius: 150px;
+    background: indianred;
+    line-height: 300px;
+    text-align: center;
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    white-space: nowrap; 
 }

@@ -8,8 +8,6 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/photon.css">
   <link rel="stylesheet" href="../css/index.css">
-  <!-- Javascript -->
-  <script src="js/menu.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -17,7 +15,7 @@
 
     <!-- .toolbar-header sits at the top of your app -->
     <header class="toolbar toolbar-header">
-      <h1 class="title">Photon hello world</h1>
+      <h1 class="title">Electron Music</h1>
     </header>
 
     <!-- Your app's content goes inside .window-content -->
@@ -25,45 +23,31 @@
       <div class="pane-group">
         <div class="pane pane-sm sidebar">
           <nav class="nav-group">
-            <h5 class="nav-group-title">Favorites</h5>
-            <span class="nav-group-item">
-                <span class="icon icon-home"></span> connors
-            </span>
-            <span class="nav-group-item active">
-                <span class="icon icon-light-up"></span> Photon
-            </span>
-            <span class="nav-group-item">
-                <span class="icon icon-download"></span> Downloads
-            </span>
-            <span class="nav-group-item">
-                <span class="icon icon-folder"></span> Documents
-            </span>
-            <span class="nav-group-item">
-                <span class="icon icon-window"></span> Applications
-            </span>
-            <span class="nav-group-item">
-                <span class="icon icon-signal"></span> AirDrop
-            </span>
-            <span class="nav-group-item">
-                <span class="icon icon-monitor"></span> Desktop
-            </span>
+            <h2 class="nav-group-title">音乐播放器</h2>
+            <p class="tar-bar">- based on Electron</p>
+            <div id="select-btn" class="select-btn">
+              <span class="icon icon-folder"></span><span>选择music</span>
+              <input id="checkmusic" style="display: none;" type="file" value="" />
+            </div>
+            <ul id="music-list">
+              
+            </ul>
           </nav>
         </div>
 
         <div class="pane">
-          <h3>音乐播放器</h3>
-          <div class="selfbox">
-            <button id="checkMusic">选择music</button>
-            <button id="play">播放</button>
-
-            <div id="holder">
-              Drag your file here
-            </div>
+          <div class="play-area">
+            <div id="music-name">当前无播放音乐,请从左侧选择</div>
+            <audio id="audio-player" class="audio-player" loop controls="controls" src="">
+              <p>Your browser does not support the <code>audio</code> element.</p>
+            </audio>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Javascript -->
+  <script src="js/menu.js" charset="utf-8"></script>
 </body>
 
 </html>
