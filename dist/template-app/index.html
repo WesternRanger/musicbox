@@ -22,26 +22,24 @@
     <div class="window-content">
       <div class="pane-group">
         <div class="pane pane-sm sidebar">
-          <nav class="nav-group">
-            <h2 class="nav-group-title">音乐播放器</h2>
-            <p class="tar-bar">- based on Electron</p>
-            <!--单曲模式-->
-            <div id="select-btn" class="select-btn">
-              <span class="icon icon-folder"></span><span>选择单曲</span>
-              <input id="checkmusic" style="display: none;" type="file"/>
+          <!--<nav class="nav-group">-->
+            <div class="toolfix">
+              <h2 class="nav-group-title">音乐播放器</h2>
+              <p class="tar-bar">- based on Electron</p>
+              <!--单曲模式-->
+              <div id="select-btn" class="select-btn">
+                <span class="icon icon-folder"></span><span>选择单曲</span>
+                <input id="checkmusic" style="display: none;" type="file" />
+              </div>
+              <!--多选-播放列表-->
+              <div id="more-btn" class="select-btn">
+                <span class="icon icon-upload"></span><span>选择播放列表</span>
+                <input id="multi-btn" type="file" style="display: none;" multiple />
+              </div>
+              <div style="font-size:20px;text-align: center;">播放列表</div>
             </div>
-            <!--多选-播放列表-->
-            <div id="more-btn" class="select-btn">
-              <span class="icon icon-upload"></span><span>选择播放列表</span>
-              <input id="multi-btn" type="file" style="display: none;" multiple />
-            </div>
-            
+
             <table id="music-list" class="table-striped">
-              <thead>
-                <tr>
-                  <th style="font-size:20px;text-align: center;">播放列表</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr>
                   <td style="text-align: center;">
@@ -51,13 +49,13 @@
                 </tr>
               </tbody>
             </table>
-          </nav>
+          <!--</nav>-->
         </div>
 
         <div class="pane">
           <div class="play-area">
             <div id="music-name">当前无播放音乐,请从左侧选择</div>
-            <audio id="audio-player" class="audio-player" loop controls="controls" src="">
+            <audio id="audio-player" class="audio-player" loop controls src="">
               <p>Your browser does not support the <code>audio</code> element.</p>
             </audio>
           </div>

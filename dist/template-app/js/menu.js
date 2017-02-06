@@ -4,7 +4,25 @@ const fs = require("fs");
 class Music {
   constructor() {
     this.timer = '';
-    this.filesBrowsed().filesList();
+    this.chooseMusic().filesBrowsed().filesList();
+  }
+  // 播放列表歌曲
+  chooseMusic() {
+    const musicList = document.querySelector('#music-list tbody'),
+          self = this;
+    musicList.addEventListener('click',function(e){
+      let name = e.srcElement.innerText,
+          path = e.srcElement.attributes['data-path'].textContent,
+          per = {
+            name,
+            path
+          };
+      //播放音乐
+      self.play(per);
+          
+    },false);
+    
+    return self;
   }
   //上传列表
   filesList() {
