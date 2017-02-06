@@ -4,7 +4,41 @@ const fs = require("fs");
 class Music {
   constructor() {
     this.timer = '';
-    this.filesBrowsed();
+    this.filesBrowsed().filesList();
+  }
+  //上传列表
+  filesList() {
+    const self = this,
+          $jiabtn = document.querySelector('#more-btn'),
+          $multiBtn = document.querySelector("#multi-btn");//多选按钮
+          
+    self.dispatchEvent($jiabtn,$multiBtn);
+
+    $multiBtn.addEventListener('change',function(e) {
+      let files = e.target.files,
+          songList = [];//音乐列表
+
+      if(files && 0 in files){
+        for(let i = 0,len = files.length;i < len;i++){
+          var per = {
+            name:files[i].name,
+            path:files[i].path
+          }
+          songList.push(per);//音乐列表
+        }
+        //拼合音乐列表
+        var $list = songList.map((item,index)=>{
+          return `<tr>
+            <td data-path="${item.path}">${index+1}.${item.name.slice(0,26)}</td>
+          </tr>`;
+        }).join('');
+
+        var $musList = document.querySelector("#music-list tbody");//音乐列表
+        $musList.innerHTML = $list;
+      }
+    },false);
+
+    return self;
   }
   //选择
   filesBrowsed() {
@@ -12,12 +46,8 @@ class Music {
       $jiabtn = document.querySelector('#select-btn'),
       $chk = document.querySelector('#checkmusic');
 
-    //触发选择
-    $jiabtn.addEventListener('click', function () {
-      var evt = document.createEvent('Events');
-      evt.initEvent('click', false, false);
-      $chk.dispatchEvent(evt);
-    }, false);
+    self.dispatchEvent($jiabtn,$chk);
+
     //选择音乐
     $chk.addEventListener('change', function (e) {
       let files = e.target.files;
@@ -30,6 +60,8 @@ class Music {
         self.play(chkMus);
       }
     }, false);
+
+    return self;
   }
   //播放器设置
   play(chkMus) {
@@ -51,6 +83,14 @@ class Music {
         self.timer = window.setTimeout(scrollMSG,400);
     }
     scrollMSG();
+  }
+  // 触发器
+  dispatchEvent($jiabtn,$chk) {
+    $jiabtn.addEventListener('click', function () {
+      var evt = document.createEvent('Events');
+      evt.initEvent('click', false, false);
+      $chk.dispatchEvent(evt);
+    }, false);
   }
 }
 new Music();

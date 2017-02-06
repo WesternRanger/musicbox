@@ -2,7 +2,7 @@
  * @Author: WesternRanger 
  * @Date: 2017-02-04 20:33:31 
  * @Last Modified by: WesternRanger
- * @Last Modified time: 2017-02-05 18:42:59
+ * @Last Modified time: 2017-02-06 17:36:05
  */
  .pane{
      text-align: center;
@@ -32,6 +32,19 @@
     text-align: center;
     border:#737475 solid 1px;
 }
+
+#music-list td {
+    white-space: normal;
+    padding-left:18px; 
+}
+.none-img{
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: auto;
+}
+
+
 /*右侧播放区*/
 .audio-player{
     margin-top:20px;
